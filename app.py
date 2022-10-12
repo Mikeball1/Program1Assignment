@@ -9,7 +9,7 @@ def scroll(words):#app
 		sys.stdout.flush()
 		time.sleep(0.02)
 
-def ensure():#app #the function used to ensure the user has picked the choice they want
+def ensure():#the function used to ensure the user has picked the choice they want
               #while also checking if the user has input an option provided by the function
               # ensure offers the yes or no choices and again ensures the user has picked yes or n
       global sure #makes the variable sure maintain the value outside of the function
@@ -24,14 +24,14 @@ def name():#app: #this function ask the user for their character name
     scroll("Input the name you would like to have during this journey\n")#tells the user to input their characters name
     username= input(str(""))#takes the users, characters name and assigns it to username
     
-def question():
+def question():#asks the user which role they would like to pick
     global choice
     scroll("Swordsman or Archer\n")
     scroll("Swordsman Stats:\nStr=4 Dex=3 HP=2\n")
     scroll("Archer Stats:\nStr=3 Dex=2 HP=4\n")
     choice= input(str("")).lower() #Offers the option of swordsman or archer
 
-def wrongchar():
+def wrongchar():#checks the given answer to ensure it is one of the options
     question()
     while choice !="swordsman" and choice !='archer':#ensures that the user has picked one the options 
       scroll ("please input one the given options\n")
@@ -39,22 +39,22 @@ def wrongchar():
     if choice=="Swordsman" or choice=="Archer":#if the user has picked one of the options it will continue
         scroll('You have picked ' + str(choice) +' is this the character you wish to choose?')
 
-def inc(): 
+def inc(): #asks the user which stat they would like to increase
       global increase
       scroll("\nWould you like to increase the stat, HP, STR, Or DEX?\n")
-      increase=input(str(""))
+      increase=input(str(""))#takes the input of the user on which stat they would like to increase
       while increase !='STR' and increase!="HP" and increase!="DEX": #if the user has input anything other than yes or no it will request the user to input the options given until they have
         scroll ("Please input one the given options\n")
         scroll("\nWould you like to increase the stat, HP, STR, Or DEX?\n")
-        increase=input(str("")) #Checks to make sure the player is good with their choice
+        increase=input(str("")) #takes the input of the user on which stat they would like to increase
 
-def winorlose():
+def winorlose():#determines whether the player has lost or won the fight based on the counter, which is based of the rolls
     if counter<countere:
      scroll("you lose\n")
     if counter>countere:
      scroll("you win\n")
 
-def check():
+def check():#shows the users current stats
     scroll('\nYour stats are \nStr='+ str(Game.Str)+'\nDex='+ str(Game.Dex)+ '\nHP=' +str(Game.HP)+"\n")
 
 #-------------------------------------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ scroll("\nThe third trial is a of dexterity.\nWho has the greater stamina, deter
 
 
 
-Game.roleassign(sure,choice)
+Game.roleassign(sure,choice)#send the sure and choice variable to the Game.py in order to assign the roles the user has chosen
 #--------------------------------------------------------------------------------------------------------------------------
 scroll('\nyou come across your first fight\n')
 scroll('''Tutorial: You have three varying choices. 
@@ -107,17 +107,17 @@ scroll('''Winning the challenge by a margin of 5 of greater will increase a stat
 Example: In a challenge of HP, your enemy has a score of 20 but you have a score of 26. Your HP will increase by 2\n''') 
 scroll('''However, losing by a margin of 5 or greater will result in the decrease of a stat by 2\n''')
 scroll('''By the end of the game you must have a total of 5 points in each stat in order to win. Any stat less than 5 will result in a loss\n''')
-def dicechoice():
+def dicechoice():#asks the user of which action they would like to perform and makes sure they have picked one of the options
     global toss
     scroll("\nWould you like to roll dice a or dice b or c\n")
-    toss=input(str(""))
+    toss=input(str(""))#takes the input of the user action choice
     while toss!= "a" and toss!="b" and toss!="c":
         scroll("please input a,b ,or c\n")
         scroll("Would you like to roll dice a or dice b or no roll\n")
-        toss=input(str(""))
+        toss=input(str(""))#takes the input of the user action choice
 
 
-def ffight():
+def ffight():#iniates the the challenge
     times=0
     global counter
     global countere
