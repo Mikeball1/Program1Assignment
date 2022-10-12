@@ -1,3 +1,4 @@
+#contains all the interactive functions and storyline
 import random
 import sys,time,os
 import role2
