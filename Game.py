@@ -1,3 +1,4 @@
+#contains all the background functions that the player does not interact with
 import role
 import role2
 import random
